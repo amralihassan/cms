@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -38,5 +39,20 @@ class Post extends Model
     public function media()
     {
         return $this->hasMany(PostMedia::class);
+    }
+
+    public function scopePost($q)
+    {
+        return $q->wherePostType('post');
+    }
+
+    public function scopeActive($q)
+    {
+        return $q->whereStatus(1);
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('M d Y');
     }
 }

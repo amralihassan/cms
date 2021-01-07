@@ -7,136 +7,41 @@
         		<div class="row">
         			<div class="col-lg-9 col-12">
         				<div class="blog-page">
- 
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="blog-details.html">
-        								<img src="{{asset('frontend/images/blog/blog-3/1.jpg')}}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="blog-details.html">Blog image post</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="blog-details.html">read more</a>
-        							</div>
-        						</div>
-        					</article>
+                                @forelse ($posts as $post)
+                                    <!-- Start Single Post -->
+                                    <article class="blog__post d-flex flex-wrap">
+                                        <div class="thumb">
+                                            <a href="#">
+                                                @if ($post->media->count() > 0)
+                                                    <img src="{{asset('assets/posts/'.$post->media->first()->filename)}}" alt="{{$post->title}}">
+                                                @else
+                                                    <img src="{{asset('assets/posts/default.jpg')}}" alt="{{$post->title}}">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h4><a href="#">{{$post->title}}</a></h4>
+                                            <ul class="post__meta">
+                                                <li>Posts by : <a href="#">{{$post->user->name}}</a></li>
+                                                <li class="post_separator">/</li>
+                                                <li>{{$post->created_at}}</li>
+                                            </ul>
+                                            <p>{!!Str::limit($post->description, 145, '...')!!}</p>
+                                            <div class="blog__btn">
+                                                <a href="#">read more</a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <!-- End Single Post -->
+                                @empty
+                                    <div class="text-center">
+                                        No posts found
+                                    </div>
+                                @endforelse
+
         					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="blog-details.html">
-        								<img src="{{asset('frontend/images/blog/blog-3/2.jpg')}}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="blog-details.html">Post with Gallery</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="blog-details.html">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="blog-details.html">
-        								<img src="{{asset('frontend/images/blog/blog-3/3.jpg')}}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="blog-details.html">Post with Gallery</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="blog-details.html">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="blog-details.html">
-        								<img src="{{asset('frontend/images/blog/blog-3/4.jpg')}}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="blog-details.html">Blog image post</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="blog-details.html">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="blog-details.html">
-        								<img src="{{asset('frontend/images/blog/blog-3/5.jpg')}}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="blog-details.html">Blog image post</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="blog-details.html">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post text--post">
-        						<div class="content">
-        							<h4><a href="blog-details.html">Blog image post</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="blog-details.html">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        				</div>
-        				<ul class="wn__pagination">
-        					<li class="active"><a href="#">1</a></li>
-        					<li><a href="#">2</a></li>
-        					<li><a href="#">3</a></li>
-        					<li><a href="#">4</a></li>
-        					<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-        				</ul>
+                        </div>
+                        {{$posts->links()}}
         			</div>
         			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
         				<div class="wn__sidebar">
