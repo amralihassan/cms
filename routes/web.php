@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', 'Frontend\IndexController@index')->name('frontend.index');
+Route::get('/post/show/{activePost:slug}', 'Frontend\IndexController@show')->name('frontend.post.show');
+Route::post('/post/store','Frontend\IndexController@storeComment')->name('frontend.store.comment');
 
 // Authentication Routes...
 Route::get('/login',                            ['as' => 'show_login_form',        'uses' => 'Frontend\Auth\LoginController@showLoginForm']);

@@ -55,4 +55,9 @@ class Post extends Model
     {
         return Carbon::parse($value)->format('M d Y');
     }
+
+    public function approvedComments()
+    {
+        return $this->hasMany(Comment::class)->whereStatus(1)->orderBy('created_at','desc');
+    }
 }

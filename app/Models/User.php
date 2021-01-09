@@ -50,4 +50,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Comment::class);
     }
+    public function getImagePathAttribute()
+    {
+        if (isset($this->user_image)) {
+            return 'assets/users/'.$this->user_image;
+        }else{
+            return 'assets/users/default.jpeg';
+        }
+    }
 }

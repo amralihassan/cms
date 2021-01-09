@@ -12,7 +12,7 @@
 					<div class="col-lg-8 d-none d-lg-block">
 						<nav class="mainmenu__nav">
 							<ul class="meninmenu d-flex justify-content-start">
-								<li class="drop with--one--item"><a href="index.html">Home</a></li>
+								<li class="drop with--one--item"><a href="{{route('frontend.index')}}">Home</a></li>
 								<li class="drop"><a href="#">Shop</a>
 									<div class="megamenu mega03">
 										<ul class="item item03">
@@ -335,5 +335,5 @@
 		<!-- End Search Popup -->
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--6">
-    
+
         </div>

@@ -33,6 +33,12 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        Route::bind('activePost', function ($slug) {
+            return \App\Models\Post::with('approvedComments', 'category')
+                ->post()
+                ->where('slug', $slug)->firstOrFail();
+        });
     }
 
     /**

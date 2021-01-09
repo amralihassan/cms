@@ -11,7 +11,7 @@
                                     <!-- Start Single Post -->
                                     <article class="blog__post d-flex flex-wrap">
                                         <div class="thumb">
-                                            <a href="#">
+                                            <a href="{{route('frontend.post.show',['activePost'=>$post])}}">
                                                 @if ($post->media->count() > 0)
                                                     <img src="{{asset('assets/posts/'.$post->media->first()->filename)}}" alt="{{$post->title}}">
                                                 @else
@@ -20,7 +20,7 @@
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="#">{{$post->title}}</a></h4>
+                                            <h4><a href="{{route('frontend.post.show',['activePost'=>$post])}}">{{$post->title}}</a></h4>
                                             <ul class="post__meta">
                                                 <li>Posts by : <a href="#">{{$post->user->name}}</a></li>
                                                 <li class="post_separator">/</li>
@@ -28,7 +28,7 @@
                                             </ul>
                                             <p>{!!Str::limit($post->description, 145, '...')!!}</p>
                                             <div class="blog__btn">
-                                                <a href="#">read more</a>
+                                                <a href="{{route('frontend.post.show',['activePost'=>$post])}}">read more</a>
                                             </div>
                                         </div>
                                     </article>
