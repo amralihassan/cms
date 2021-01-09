@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Carbon\Carbon;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Post extends Model
 {
-    use Sluggable;
+    use Sluggable, SearchableTrait;
 
     protected $guarded = [];
 
@@ -58,6 +59,13 @@ class Post extends Model
 
     public function approvedComments()
     {
-        return $this->hasMany(Comment::class)->whereStatus(1)->orderBy('created_at','desc');
+        return $this->hasMany(Comment::class)->whereStatus(1)->orderBy('created_at', 'desc');
     }
+
+    protected $searchable = [
+        'columns' => [
+            'posts.title' => 10,
+            'posts.description' => 10
+        ]
+    ];
 }

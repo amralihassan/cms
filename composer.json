@@ -19,7 +19,8 @@
         "laravel/ui": "^2.4",
         "laravelcollective/html": "^6.2",
         "mindscms/entrust": "^2.1",
-        "cviebrock/eloquent-sluggable": "^7.0"
+        "cviebrock/eloquent-sluggable": "^7.0",
+        "nicolaslopezj/searchable": "1.*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
